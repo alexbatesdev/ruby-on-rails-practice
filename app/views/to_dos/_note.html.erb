@@ -1,0 +1,5 @@
+<div>
+  <p><strong>Note:</strong> <%= note.body %></p>
+  <p><strong>Created at:</strong> <%= note.created_at %></p>
+  <%= button_to "Delete this note", to_do_note_path(@to_do, note), method: :delete %>
+</div>

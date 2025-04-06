@@ -1,0 +1,6 @@
+<%= form_with model: [ to_do, to_do.notes.build ] do |form| %>
+  <%= form.label :body %>
+  <%= form.text_area :body %>
+
+  <%= form.submit "Create Note" %>
+<% end %>
