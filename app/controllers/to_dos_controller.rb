@@ -49,6 +49,7 @@ class ToDosController < ApplicationController
 
   # DELETE /to_dos/1 or /to_dos/1.json
   def destroy
+    # commenty comment
     @to_do.destroy!
 
     respond_to do |format|

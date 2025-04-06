@@ -10,11 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_03_27_011935) do
+ActiveRecord::Schema[8.0].define(version: 2025_04_06_003046) do
+  create_table "notes", force: :cascade do |t|
+    t.text "body"
+    t.integer "to_do_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["to_do_id"], name: "index_notes_on_to_do_id"
+  end
+
   create_table "to_dos", force: :cascade do |t|
     t.string "title"
     t.boolean "completed"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  add_foreign_key "notes", "to_dos"
 end

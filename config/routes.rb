@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :to_dos
+  resources :to_dos do
+    resources :notes
+  end
   get "home/index"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   get "weather", to: "weather#index"

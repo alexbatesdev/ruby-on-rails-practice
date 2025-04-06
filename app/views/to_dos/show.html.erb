@@ -7,4 +7,21 @@
   <%= link_to "Back to to dos", to_dos_path %>
 
   <%= button_to "Destroy this to do", @to_do, method: :delete %>
+
+  <% @to_do.notes.each do |note| %>
+    <div>
+      <p><strong>Note:</strong> <%= note.body %></p>
+      <p><strong>Created at:</strong> <%= note.created_at %></p>
+      <p><strong>Updated at:</strong> <%= note.updated_at %></p>
+      <%= button_to "Delete this note", to_do_note_path(@to_do, note), method: :delete %>
+    </div>
+
+  <% end %>
+
+  <%= form_with model: [ @to_do, @to_do.notes.build ] do |form| %>
+    <%= form.label :body %>
+    <%= form.text_area :body %>
+
+    <%= form.submit "Create Note" %>
+  <% end %>
 </div>
